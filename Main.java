@@ -5,19 +5,28 @@ import Exceptions.EingabeFehler;
 public class Main {
 
     public static void main(String[] args) {
-        GerUnge numGerade = new GerUnge();
+        Handler handler = new Handler();
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("--- Ungerade/Gerade Zahl ---");
-        System.out.print("Geben die die Zahl ein: ");
+        System.out.println("--- ZAHLENTESTER FÜR DUMME WIE MICH ---");
+        System.out.println("1. --- Gerade / Ungerade ---");
+        System.out.println("2. --- Primzahl Tester ---");
+        System.out.println("---------------------------------------");
+        System.out.println("3. --- Beenden des tests ---");
+
         int eingabe = scan.nextInt();
 
-        scan.close();
-
-        try {
-            numGerade.gerade(eingabe);
-        } catch (EingabeFehler e) {
-            System.out.println(e.getMessage());
+        switch (eingabe) {
+            case 1:
+                handler.geraderUngeradeMenue();
+                break;
+            case 2:
+                handler.primzahl();
+                break;
+            default:
+                break;
         }
+        
+        scan.close();
     }
 }
